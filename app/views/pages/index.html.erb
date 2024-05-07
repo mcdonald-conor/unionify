@@ -1,0 +1,6 @@
+<ul>
+  <% @celebrants.each do |celebrant| %>
+    <li><%= celebrant.username %></li>
+    <li><%= celebrant.location %></li>
+    <li><%= celebrant.rate %></li>
+  <% end %>
