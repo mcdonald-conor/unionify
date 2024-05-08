@@ -1,1 +1,50 @@
 // Specific CSS for your home-page
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://img.freepik.com/free-photo/groom-putting-ring-bride-s-finger_1157-338.jpg?t=st=1715176647~exp=1715180247~hmac=5ef8237799873a183eced34ac0ee94ee7fd5845ba3f6bccbde3f7d7d62ffe129&w=1480);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner .container {
+  text-align: center;
+  color: white;
+}
+
+.banner h1 {
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 80px;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.btn {
+  margin: 0 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}

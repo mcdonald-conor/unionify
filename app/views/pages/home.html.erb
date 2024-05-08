@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/groom-putting-ring-bride-s-finger_1157-338.jpg?t=st=1715176647~exp=1715180247~hmac=5ef8237799873a183eced34ac0ee94ee7fd5845ba3f6bccbde3f7d7d62ffe129&w=1480);">
+    <div class="container">
+      <h1>Find the Perfect Celebrant for Your Special Occasion!</h1>
+      <p>Browse through our network of skilled professionals and book the right one for your needs.</p>
+      <div class="button-container">
+      <%= link_to "See available Celebrants", celebrants_url, :class => "btn btn-primary" %>
+      <%= link_to "Become a Celebrant", new_celebrant_url, :class => "btn btn-primary" %>
+    <%# <button class="btn btn-primary">See Available Celebrants</button>
+    <button class="btn btn-primary">Become a Celebrant</button> %>
+  </div>
+    </div>
+  </div>
