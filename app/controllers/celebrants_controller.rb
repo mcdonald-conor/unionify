@@ -1,14 +1,23 @@
 class CelebrantsController < ApplicationController
   def index
+    @celebrants = Celebrant.all
   end
 
   def show
+    @celebrant = Celebrant.find(params[:id])
   end
 
   def new
+    @celebrant = Celebrant.new
   end
 
   def create
+    @celebrant = Celebrant.new(strong_params)
+    if @celebrant.save
+      redirect_to celebrant_path(@celebrant)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -18,5 +27,11 @@ class CelebrantsController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+
+  def strong_params
+    params.require(:celebrant).permit(:username, :location, :rate)
   end
 end
