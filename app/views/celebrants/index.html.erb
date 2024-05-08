@@ -1,8 +1,15 @@
-<ul>
+<div class="row">
   <% @celebrants.each do |celebrant| %>
-    <li><%= celebrant.username %></li>
-    <li><%= celebrant.location %></li>
-    <li><%= celebrant.rate %></li>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= celebrant.username %></h5>
+          <p class="card-text"><%= celebrant.location %></p>
+          <p class="card-text">Price: <%= number_to_currency(celebrant.rate) %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+
 <%= link_to "Create Celebrant", new_celebrant_url %>
