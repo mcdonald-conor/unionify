@@ -2,7 +2,6 @@
   <% @celebrants.each do |celebrant| %>
     <div class="col-md-4">
       <div class="card">
-        <img src="<%= celebrant.image_url %>" class="card-img-top" alt="Celebrant Image">
         <div class="card-body">
           <h5 class="card-title"><%= celebrant.username %></h5>
           <p class="card-text"><%= celebrant.location %></p>
@@ -12,3 +11,5 @@
     </div>
   <% end %>
 </div>
+
+<%= link_to "Create Celebrant", new_celebrant_url %>

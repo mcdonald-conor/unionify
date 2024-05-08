@@ -13,8 +13,9 @@ class CelebrantsController < ApplicationController
 
   def create
     @celebrant = Celebrant.new(strong_params)
-    if @celebrant.save
-      redirect_to celebrant_path(@celebrant)
+    @celebrant.user = current_user
+    if @celebrant.save!
+      redirect_to celebrants_path
     else
       render :new, status: :unprocessable_entity
     end
