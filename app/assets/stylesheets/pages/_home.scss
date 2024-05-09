@@ -44,7 +44,14 @@ html, body {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: rgba(9,53,77,255) !important;
   color: #fff;
-  border: none;
+  border: 1px solid rgb(248, 240, 240) !important;
+}
+
+.btn:hover {
+  color: black;            /* Changes the text color to black */
+  background-color: white; /* Changes the background to white */
+  border-color: black;     /* Changes the border color to black */
+  border: 1px solid black; /* Ensure the border is visible */
 }
