@@ -1,5 +1,5 @@
 class Celebrant < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, through => :bookings
   has_many :bookings
 
   #validates :username, prescence: true, uniqueness: true
