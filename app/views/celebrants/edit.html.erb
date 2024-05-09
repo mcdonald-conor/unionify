@@ -5,6 +5,6 @@
   <%= f.input :languages %>
   <%= f.input :services %>
   <%= f.input :bio %>
-  <%= f.submit "Submit details" %>
+  <%= f.submit "Change details" %>
 <% end %>
-<%= link_to "Back to Index", "celebrants/:id/destroy" %>
+<%= linl_to "Delete profile", celebrant_path(@celebrant), method: :delete %>
