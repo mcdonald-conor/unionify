@@ -45,6 +45,6 @@ class CelebrantsController < ApplicationController
   private
 
   def strong_params
-    params.require(:celebrant).permit(:username, :location, :rate, :languages, :services, :bio)
+    params.require(:celebrant).permit(:username, :location, :rate, :languages, :services, :bio, :years_experience)
   end
 end
