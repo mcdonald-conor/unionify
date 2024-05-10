@@ -1,10 +1,13 @@
-<%= simple_form_for(@celebrant) do |f| %>
-  <%= f.input :username %>
-  <%= f.input :location %>
-  <%= f.input :rate %>
-  <%= f.input :languages %>
-  <%= f.input :services %>
-  <%= f.input :bio %>
-  <%= f.submit "Submit details" %>
-<% end %>
-<%= link_to "Back to Index", celebrants_url %>
+<div style="margin:1.2%;">
+  <%= simple_form_for(@celebrant) do |f| %>
+    <%= f.input :username %>
+    <%= f.input :location %>
+    <%= f.input :years_experience %>
+    <%= f.input :rate %>
+    <%= f.input :languages %>
+    <%= f.input :services %>
+    <%= f.input :bio %>
+    <%= f.submit "Submit details" %>
+  <% end %>
+</div>
+<%= link_to "Back to Index", celebrants_url, :class => 'btn btn-primary' %>
