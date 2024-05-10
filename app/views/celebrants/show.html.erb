@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Card</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css"/>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5>
-                            Helen Ryan
+                        <%=@celebrant.username%>
                         </h5>
                        <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -34,26 +34,25 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
                       <p class="large-text">SERVICES</p>
-                        <a>WEDDINGS</a><br/>
-                        <a>NAMING CEREMONIES</a><br/>
-                        <a>RENEWAL VOWS</a><br/>
-                        <a>FUNERALS</a>
-                        <p>AREAS COVERED</p>
-                        <a>ENGLAND</a><br/>
-                        <a>WALES</a><br/>
-                        <a>SCOTLAND</a><br/>
-                        <a>IRELAND</a><br/>
+                      <%=@celebrant.services%>
+                        <p>LOCATION</p>
+                      <%=@celebrant.location%>
+                      <%= link_to "Delete",
+                        celebrant_path(@celebrant),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                        class:"btn btn-success"
+                      %>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <!-- Content for BIO tab -->
-                            <p class="Bio">Helen Ryan is a professional celebrant known for her compassionate approach and dedication to crafting personalized ceremonies. With a background in communication and years of experience in various types of ceremonies, Helen ensures that each event she handles is memorable and unique. Her expertise includes weddings, naming ceremonies, vow renewals, and funerals, catering to a diverse range of needs and preferences.</p>
+                            <p class="Bio"><%=@celebrant.bio%></p>
                             <!-- Other rows for the BIO tab -->
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -64,20 +63,20 @@
                                     <p>SERVICES</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>5 years</label>
-                                    <p>Weddings, Funerals, Vow Renewals</p>
+                                    <label><%=@celebrant.years_experience%></label>
+                                    <p><%=@celebrant.services%></p>
                                 </div>
                                 <div class="col-md-6">
                                     <label>LANGUAGES</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>English & French</label>
+                                    <label><%=@celebrant.languages%></label>
                                 </div>
                                 <div class="col-md-6">
                                   <label>RATE</label>
                                </div>
                               <div class="col-md-6">
-                                  <label>£500</label>
+                                  <label>£<%=@celebrant.rate%></label>
                               </div>
                             </div>
                             <div class="col-md-6">
@@ -110,12 +109,10 @@
               <label for="name">Name:</label>
               <input type="text" class="form-control" id="name" required>
           </div>
-
           <div class="form-group">
               <label for="email">Email:</label>
               <input type="email" class="form-control" id="email" required>
           </div>
-
           <div class="form-group">
               <label for="ceremony">Ceremony:</label>
               <input type="text" class="form-control" id="ceremony" placeholder="Enter the ceremony type">
@@ -129,7 +126,6 @@
                   <option value="other">Other</option>
               </select> -->
           </div>
-
           <div class="form-group">
               <label for="date">Date:</label>
               <div class="input-group date" id="datepicker" data-target-input="nearest">
@@ -139,13 +135,11 @@
                   </div>
               </div>
           </div>
-
           <div class="form-group">
               <label for="message">Message:</label>
               <textarea class="form-control" id="message" rows="3" required></textarea>
           </div>
       </form>
-
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Book Celebrant</button>
