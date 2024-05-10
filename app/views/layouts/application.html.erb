@@ -28,16 +28,15 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Login", "#", class: "nav-link" %>
+            <!-- <%= link_to "Login", "#", class: "nav-link" %> -->
           </li>
           <li class="nav-item">
-            <%= link_to "Show Celebrants", celebrants_url, class: "nav-link" %>
+            <%= link_to "Become a Celebrant", new_celebrant_url, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1714039478/fljhihodrtumpmobsmug.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "View profile", "#" , class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
@@ -56,4 +55,17 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></script>
   </body>
+  <div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Unionify
+  </div>
+</div>
+
 </html>
