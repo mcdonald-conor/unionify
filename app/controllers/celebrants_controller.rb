@@ -36,7 +36,7 @@ class CelebrantsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @celebrant = Celebrant.find(params[:id])
     @celebrant.destroy
     redirect_to celebrants_path, status: :see_other

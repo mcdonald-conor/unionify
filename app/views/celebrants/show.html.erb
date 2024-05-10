@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container emp-profile">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
+                        <%=@celebrant.username%>
+                        </h5>
+                       <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" style="color:#195882;">BIO</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="color: #195882;">MORE INFO</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                      <p class="large-text">SERVICES</p>
+                      <%=@celebrant.services%>
+                        <p>LOCATION</p>
+                      <%=@celebrant.location%>
+                      <%= link_to "Delete",
+                        celebrant_path(@celebrant),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                        class:"btn btn-success"
+                      %>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <!-- Content for BIO tab -->
+                            <p class="Bio"><%=@celebrant.bio%></p>
+                            <!-- Other rows for the BIO tab -->
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <!-- Content for MORE INFO tab -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>EXPERIENCE</label>
+                                    <p>SERVICES</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label><%=@celebrant.years_experience%></label>
+                                    <p><%=@celebrant.services%></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>LANGUAGES</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label><%=@celebrant.languages%></label>
+                                </div>
+                                <div class="col-md-6">
+                                  <label>RATE</label>
+                               </div>
+                              <div class="col-md-6">
+                                  <label>£<%=@celebrant.rate%></label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                          </div>
+                            <!-- Other rows for the MORE INFO tab -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Button at the bottom center of the page -->
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#bookingModal">BOOK CELEBRANT</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLabel">Book Celebrant</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="form-group">
+              <label for="ceremony">Ceremony:</label>
+              <input type="text" class="form-control" id="ceremony" placeholder="Enter the ceremony type">
+              <!-- <label for="ceremony">Ceremony:</label>
+              <select class="form-control" id="ceremony">
+                  <option value="">Select a ceremony</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="vow-renewal">Vow Renewal</option>
+                  <option value="baby-naming">Naming Ceremony</option>
+                  <option value="funeral">Funeral</option>
+                  <option value="other">Other</option>
+              </select> -->
+          </div>
+          <div class="form-group">
+              <label for="date">Date:</label>
+              <div class="input-group date" id="datepicker" data-target-input="nearest">
+                  <input type="text" class="form-control datetimepicker-input" data-target="#datepicker" id="date" required>
+                  <div class="input-group-append" data-target="#datepicker" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea class="form-control" id="message" rows="3" required></textarea>
+          </div>
+      </form>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Book Celebrant</button>
+      </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+<script>
+    $(function() {
+        $('#datepicker').datetimepicker({
+            format: 'L'
+        });
+    });
+</script>
+</body>
+</html>
